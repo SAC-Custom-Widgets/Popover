@@ -1,0 +1,91 @@
+{
+	"eula": "",
+	"vendor": "Nikolaj Kappler",
+	"license": "",
+	"id": "nkappler.popover",
+	"version": "0.1.0",
+	"name": "Popover",
+	"newInstancePrefix": "Popover",
+	"description": "A Popover Renderer",
+	"icon": "https://widgets.nkappler.de/Popover/docs/icon.png",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "sdk-popover",
+			"url": "https://widgets.nkappler.de/Popover/releases/0.1.0/main-webcomponent.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "styling",
+			"tag": "sdk-popover-aps",
+			"url": "https://widgets.nkappler.de/Popover/releases/0.1.0/styling-webcomponent.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"backgroundColor": {
+			"type": "string",
+			"description": "The color of the background",
+			"default": "#ffffff"
+		},
+		"width": {
+			"type": "integer",
+			"default": 64
+		},
+		"height": {
+			"type": "integer",
+			"default": 64
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"position": {
+			"type": "Object<string>"
+		},
+		"hidden": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"methods": {
+		"setContent": {
+			"description": "Sets the content of the popover. Takes a HTML string as parameter.",
+			"parameters": [
+				{
+					"name": "html",
+					"type": "string",
+					"description": "The new content for the popover as HTML string."
+				}
+			],
+			"body": "this.content = html;"
+		},
+		"setPosition": {
+			"description": "Sets the position of the popover on the canvas.",
+			"parameters": [
+				{
+					"name": "x",
+					"type": "integer"
+				},
+				{
+					"name": "y",
+					"type": "integer"
+				}
+			],
+			"body": "var newPos = {\"x\": ConvertUtils.numberToString(x), \"y\": ConvertUtils.numberToString(y)}; this.position = newPos;"
+		},
+		"show": {
+			"description": "Shows the popover.",
+			"parameters": [],
+			"body": "this.hidden = false;"
+		},
+		"hide": {
+			"description": "Hides the popover.",
+			"parameters": [],
+			"body": "this.hidden = true;"
+		}
+	},
+	"events": {}
+}
